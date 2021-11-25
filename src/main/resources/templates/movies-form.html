@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="/fragments/head-peli :: head"></head>
+    <body>
+        <header>
+            <nav th:replace="/fragments/nav-bar :: nav"></nav>
+        </header>
+        <div class="container">
+            <div th:if="${error}" class="alert alert-warning" mt-3 role="alert">
+                <span th:text="${error}"> </span>
+            </div>
+            <div th:if="${success}" class="alert alert-success" role="alert">
+                <span th:text="${success}"> </span>
+            </div>
+            <div class="card">
+                <div class="card-header d-flex mt-5">
+                    <h1 id="crearmovies">Crear una Pelicula o Serie</h1>
+                    <button class="btn-dark px-5 py-2 ms-auto"><a th:href="@{/movies/list}">Lista de Peliculas</a></button>
+                </div>
+                <div class="card-body">
+                    <form action="/movies/save" method="POST" th:object="${pelicula}" enctype="multipart/form-data" >
+
+
+
+                        <input hidden th:field="*{id}">
+                        
+
+                        <label for="titulo" class="form-label mt-2"></label>
+                        <input type="text" class="form-control" id="nombreCompleto" name="titulo"  th:field="*{titulo}" placeholder="Ingrese el Nombre">
+
+                        <label for="fechaDeCreacion" class="form-label mt-2"></label>
+                        <input type="date" class="edad" id="fechaDeCreacion" name="fechaDeCreacion" th:field="*{fechaDeCreacion}">
+                        <div class="mb-3">
+                            <label for="genero" class="form-label">Seleccione Genero</label>
+                            <select class="form-select" th:field="*{genero.id}" >
+                                <option th:each="c : ${#lists.sort(generos)}" th:text="${c.genero}" th:value="${c.id}"></option>
+                            </select>
+                        </div>
+                       <div class="mb-3">
+                            <label for="calificacion" class="form-label">Seleccione Calificacion</label>
+                            <select class="form-select" th:field="*{calificacion.id}" >
+                                <option th:each="c : ${#lists.sort(calificaciones)}" th:text="${c.calificacion}" th:value="${c.id}"></option>
+                            </select>
+                        </div>
+       
+                        <div class="grupo">
+                            <input class="input" type="file" name="imagen" id="imagen">
+                            <label class="label" for="">Foto de la pelicula</label>
+                        </div>
+
+
+                        <input type="submit" class="form-control" id="enviar">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="/https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+        <script src="/https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    </body>
+</html>

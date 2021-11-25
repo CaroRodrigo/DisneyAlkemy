@@ -1,0 +1,16 @@
+<header>
+    <nav th:fragment="nav" class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            
+           <div class="logo">
+            <a href="/" class="logo">
+                <img src="/assets/Animation_icon-icons.com_54214.ico" class="imagen__logo">
+            </a>
+            </div>
+            <a class="navbar-brand" sec:authorize="!isAuthenticated()" th:href="@{/auth/login}">Ingresar</a>
+            <a class="navbar-brand" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/panel-admin}">Panel de Control</a>
+            <a class="navbar-brand" sec:authorize="isAuthenticated()" th:href="@{/logout}">Cerrar sesion</a>
+            <a class="navbar-brand" sec:authorize="!isAuthenticated()" th:href="@{/auth/register}">Registrarse</a>
+        </div>
+    </nav>
+</header>

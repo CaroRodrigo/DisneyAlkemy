@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<!--
+<div th:if="${personas != null and !personas.empty }"></div> asi es un if
+-->
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="/fragments/head-peli :: head"></head>
+    <body>
+        <header>
+            <nav th:replace="/fragments/nav-bar :: nav"></nav>
+        </header>
+        <div class="row m-5">
+            <div class="col d-flex justify-content-center">
+                <button class="btn-black px-5 py-2"><a th:href="@{/movies/form}">Crear Peliculas</a></button>
+            </div>
+            <div class="col d-flex justify-content-center">
+                <button class="btn-black px-5 py-2"><a th:href="@{/movies/list}">Lista de Peliculas</a></button>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/fragments/head-calificacion :: head"></head>
+
+<body class="body-usuario">
+    <header th:replace="/fragments/nav-bar :: nav"></header>
+    <main>
+        
+        <div class="container-fluid mt-3">
+            <div class="row justify-content-center">
+                <div class="col-auto text-center">
+                    <div class="col-auto text-center">
+                        <div class="barra-titulo">
+                            <h1 class="sector-admin">Lista de Generos</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form class="row-filtro" th:action="@{/gender/list}" method="GET" style="width: 50%; margin: 0 auto;">
+            <div class="col-auto">
+                <input type="text" name="query" class="form-control" placeholder="Filtrar">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn-buscar mb-3" style="margin-top: 10px;">Buscar</button>
+                <a th:href="@{/gender/list}" class="button4" >Limpiar filtro</a>
+                <br>
+                <button class="button"><a th:href="@{/gender/form}">Crear Genero</a></button>
+            </div>
+        </form>
+        <section class="mt-5" style="width: 50%; margin: 0 auto; ">
+            <table class="table table-light table-striped table-hover">
+                <thead >
+                    <tr style="width: 50%; margin: 0 auto; ">
+                        <th>Nº</th>
+                        <th>Puntajes</th>
+                        <th>ㅤ ㅤ ㅤ ㅤㅤㅤㅤAcciones</th>
+                    </tr>
+                </thead>
+
+                <tbody >
+                    <tr th:each='gender,iterator : ${generos}'>
+                        <td th:text="${iterator.index+1}"></td>
+                        <td th:text="${gender.genero}"></td>
+                        <td>
+                <button class="btn-dark"><a th:href="@{/gender/delete}+'?id='+${gender.id}" class="px-5 py-2" >Eliminar</a></button>
+                <button class="btn-dark"><a th:href="@{/gender/form}+'?id='+${gender.id}" class="px-5 py-2" >Editar</a></button>
+                </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+        
+    </body>
+</html>

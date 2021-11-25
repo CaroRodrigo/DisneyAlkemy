@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+<div th:if="${personas != null and !personas.empty }"></div> asi es un if
+-->
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="/fragments/head-registro :: head"></head>
+    <body>
+        <header>
+            <nav th:replace="/fragments/nav-bar :: nav"></nav>
+        </header>
+        <div class="container">
+            <div th:if="${error}" class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                <span th:text="${error}"> </span>
+            </div>
+            <div th:if="${param.logout}" class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                <span>La sesion ha finalizado con exito</span>
+            </div>
+            <div class="form">
+                <div class="card-header d-flex mt-5">
+                    <h1>Login</h1>
+                    <button class="btn-dark px-5 py-2 ms-auto"><a th:href="@{/}">Volver</a></button>
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/logincheck}" method="POST" class="col-6 mx-auto">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Nombre de usuario</label>
+                            <input type="text" class="form-control" th:value=${username} name="username" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" name="password" >
+                        </div>
+                        <button class="btn-dark px-5 py-2 ms-auto">Ingresar</a></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head> <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Rodrigo Caro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="/assets/escudo.png" type="image/x-icon">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/styles-equipo.css">
+  </head>
+
+<body class="body-usuario">
+    <header><nav th:replace="/fragments/nav-bar :: nav"></nav></header>
+    <main>
+    <section class="tienda">
+      <div class="container">
+        <article class="seccion__categoria">
+          <p class="tienda__title-categoria">Personajes</p>
+          <div class="galery__port" style="display: flex; flex-wrap: wrap">
+
+            <div class="producto__tienda" style="margin-bottom: 10px;" th:each="j : ${personajes}">
+              <div class="galery__port--img">
+                <a class="galery__port--hover">
+                  <img class="imagen__tienda" th:src="${'/foto/characters?id='}+${j.id}"></a>
+                <br><br>
+                  <div class="descripcion">
+                  <p class="descripcion__produc" th:text="'Nombre: ' + ${j.nombre}"></p>
+                  <p class="descripcion__produc" th:text="'Pelicula: ' + ${j.pelicula.titulo}"></p>
+                  <p class="descripcion__produc" th:text="'Nacimiento: ' + ${j.edad}"></p>
+                  <p class="descripcion__produc" th:text="'Peso: ' + ${j.peso} + ' Kg' "></p>
+                  <p class="descripcion__produc" th:text="'Historia: ' + ${j.historia}"></p>
+                  
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        </div>
+    </section>
+  </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+        
+    </body>
+</html>
