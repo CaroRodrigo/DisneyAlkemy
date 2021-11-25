@@ -1,0 +1,20 @@
+body{
+    background-image: url(/img/4.jpg) ;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: rgb(241, 241, 243);
+
+}
+button{
+    background-color: rgb(204, 204, 204);
+}
+
+h1{
+    color: aliceblue;
+}
+
+#crearpersona{
+    color :black
+}

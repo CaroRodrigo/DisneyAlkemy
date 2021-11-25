@@ -1,0 +1,153 @@
+/* VARIABLES DEFINIDIAS */
+:root {
+    --background: linear-gradient(135deg, #667eea7e 0%, #764ba298 100%);
+    --color-primary: #1b2f62;
+    --color-secondary: #0e204e;
+    --black1: #1a1b1f;
+    --black2: #30353b;
+    --boton-padding: 20px 40px;
+}
+
+body {
+    font-family: 'Hammersmith One', sans-serif;
+
+    background: #0f0c29;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #1b2f62, #0f0c29);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #1b2f62, #0f0c29);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.hero__sin--slider {
+    width: 100%;
+
+}
+
+.form-register {
+    height: 688px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--black2);
+}
+
+.logo__club {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 155px;
+    left: calc(50% - 50px);
+}
+
+h1 {
+    text-align: center;
+}
+
+.form {
+    background: #ffff;
+    padding: 40px 30px;
+    box-shadow: 0 0 6px 4px rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    min-width: 593px;
+    margin: 50px auto 0px;
+}
+
+
+.form .grupo {
+    position: relative;
+    margin: 45px;
+}
+
+.input {
+    background: none;
+    color: var(--black1);
+    font-size: 18px;
+    padding: 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--color-primary);
+}
+
+.input:focus {
+    /* quita el recuadro donde va el input */
+    outline: none;
+    color: var(--color-secondary);
+}
+
+.label {
+    color: var(--color-primary);
+    font-size: 16px;
+    position: absolute;
+    left: 5px;
+    top: -5px;
+    transition: 0.7s ease all;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+/* input:valid para que no se superpongan los textos del label */
+input:focus~label,
+input:valid~label {
+    top: -14px;
+    font-size: 12px;
+    color: #1b2f62;
+}
+
+.barra {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+/* efecto de barra cargando del label */
+.barra::before {
+    content: "";
+    height: 2px;
+    width: 0%;
+    bottom: 0%;
+    position: absolute;
+    background: linear-gradient(to top, hsla(213, 44%, 29%, 0.638), #1b2f62);
+    transition: 0.5s ease width;
+    left: 0%;
+}
+
+.input:focus~.barra::before {
+    width: 100%;
+}
+
+.button {
+    font-family: 'Hammersmith One', sans-serif;
+    background: #1b2f62;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, hsla(213, 44%, 29%, 0.638), #1b2f62);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, hsla(213, 44%, 29%, 0.638), #1b2f62);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border: none;
+    display: block;
+    width: 80%;
+    margin: 40px auto;
+    color: #ffff;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.confirmacion__mail {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 22px;
+}
+
+.contraseña__olvidada {
+    font-family: 'Hammersmith One', sans-serif;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    font-size: 12px;
+    margin: 10px auto;
+
+}

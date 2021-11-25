@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="/fragments/head-registro :: head"></head>
+    <body>
+        <header>
+            <nav th:replace="/fragments/nav-bar :: nav"></nav>
+        </header>
+        <section class="form-register">
+            <div th:if="${error}" class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                <span th:text="${error}"> </span>
+            </div>
+            <div class="form">
+                <div>
+                    <h1 class="form-title">Registro de usuario</h1>
+                
+                </div>
+                <div>
+                    <form th:action="@{/auth/register}" method="POST" >
+                        <div class="grupo">
+                            <label for="nombre" class="label">Nombre</label>
+                            <input type="text" class="input" name="nombre" >
+                        </div>
+                        <div class="grupo">
+                            <label for="apellido" class="label">Apellido</label>
+                            <input type="text" class="input" name="apellido" >
+                        </div>
+                        <div class="grupo">
+                            <label for="username" class="label">Email</label>
+                            <input type="text" class="input" th:value=${username} name="username">
+                        </div>
+                        <div class="grupo">
+                            <label for="password" class="label">Contraseña</label>
+                            <input type="password" class="input" name="password">
+                        </div>
+                        
+                        <button class="button">Guardar</a></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
